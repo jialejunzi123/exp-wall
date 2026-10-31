@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== 全局重置 ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  background: #0c0c0c;
+}
+
+body {
+  font-family: 'Kanit', sans-serif;
+  color: #d7e2ea;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== 外层主容器 ===== */
+.app-container {
+  background: #0c0c0c;
+  overflow-x: clip;
+}
+
+/* ===== 渐变标题文字 ===== */
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* ===== ContactButton 药丸按钮 ===== */
+.contact-button {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+  text-transform: uppercase;
+  color: #ffffff;
+  border-radius: 9999px;
+  background: linear-gradient(
+    123deg,
+    #18011f 7%,
+    #b600a8 37%,
+    #7621b0 72%,
+    #be4c00 100%
+  );
+  /* 内阴影 + 白色 2px 外描边（偏移 -3px） */
+  box-shadow:
+    inset 0 4px 10px rgba(255, 255, 255, 0.22),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.38),
+    -3px -3px 0 2px #ffffff;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    opacity 200ms ease;
+}
+
+.contact-button:hover {
+  opacity: 0.92;
+}
+
+.contact-button:active {
+  transform: translate(1px, 1px);
+}
+
+/* ===== 极光渐变弥散流光背景 ===== */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #0c0c0c;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: screen;
+  will-change: transform;
+  transform-origin: center;
+}
+
+/* 1. 翡翠绿 —— 左上 */
+.aurora-blob-1 {
+  width: 46vw;
+  height: 46vw;
+  left: -10vw;
+  top: -12vw;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(16, 185, 129, 0.62) 0%,
+    rgba(5, 150, 105, 0.28) 45%,
+    rgba(5, 150, 105, 0) 72%
+  );
+  animation: aurora-drift-a 24s ease-in-out infinite alternate;
+}
+
+/* 2. 青冰 —— 右上 */
+.aurora-blob-2 {
+  width: 42vw;
+  height: 42vw;
+  right: -12vw;
+  top: -8vw;
+  background: radial-gradient(
+    circle at 60% 40%,
+    rgba(34, 211, 238, 0.58) 0%,
+    rgba(14, 165, 233, 0.26) 45%,
+    rgba(14, 165, 233, 0) 72%
+  );
+  animation: aurora-drift-b 28s ease-in-out infinite alternate;
+}
+
+/* 3. 柠金 —— 左下 */
+.aurora-blob-3 {
+  width: 40vw;
+  height: 40vw;
+  left: -6vw;
+  bottom: -14vw;
+  background: radial-gradient(
+    circle at 40% 60%,
+    rgba(250, 204, 21, 0.5) 0%,
+    rgba(234, 179, 8, 0.22) 45%,
+    rgba(234, 179, 8, 0) 72%
+  );
+  animation: aurora-drift-c 26s ease-in-out infinite alternate;
+}
+
+/* 4. 翡翠青 —— 右下 */
+.aurora-blob-4 {
+  width: 44vw;
+  height: 44vw;
+  right: -10vw;
+  bottom: -10vw;
+  background: radial-gradient(
+    circle at 55% 45%,
+    rgba(20, 184, 166, 0.55) 0%,
+    rgba(6, 148, 132, 0.24) 45%,
+    rgba(6, 148, 132, 0) 72%
+  );
+  animation: aurora-drift-d 30s ease-in-out infinite alternate;
+}
+
+/* 5. 柔青 —— 中央 */
+.aurora-blob-5 {
+  width: 38vw;
+  height: 38vw;
+  left: 30vw;
+  top: 32vh;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(103, 232, 249, 0.4) 0%,
+    rgba(34, 211, 238, 0.16) 45%,
+    rgba(34, 211, 238, 0) 72%
+  );
+  animation: aurora-drift-e 22s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-drift-a {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(8vw, 7vw) rotate(42deg) scale(1.15);
+  }
+}
+
+@keyframes aurora-drift-b {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(-10vw, 9vw) rotate(-52deg) scale(1.2);
+  }
+}
+
+@keyframes aurora-drift-c {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(10vw, -8vw) rotate(58deg) scale(1.12);
+  }
+}
+
+@keyframes aurora-drift-d {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(-9vw, -7vw) rotate(-46deg) scale(1.24);
+  }
+}
+
+@keyframes aurora-drift-e {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  to {
+    transform: translate(7vw, 10vw) rotate(32deg) scale(1.14);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none;
+  }
+}
